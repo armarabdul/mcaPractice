@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Fibonacci Series</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f3f4f6, #e2e2e2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 320px;
+            text-align: center;
+        }
+        h1 {
+            color: #2d3748;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: 600;
+        }
+        button {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            padding: 12px 24px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+        button:active {
+            transform: scale(1.02);
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #4a5568;
+            font-weight: 500;
+        }
+    </style>
+    <script type="text/javascript">
+        function displayFibonacci() {
+            var n = parseInt(prompt("Enter the number of Fibonacci terms:"));
+            if (isNaN(n) || n <= 0) {
+                document.getElementById("result").innerHTML = "Please enter a positive integer.";
+                return;
+            }
+
+            var fibonacci = [];
+            var a = 0, b = 1;
+            for (var i = 0; i < n; i++) {
+                fibonacci.push(a);
+                var next = a + b;
+                a = b;
+                b = next;
+            }
+
+            document.getElementById("result").innerHTML = "Fibonacci series: " + fibonacci.join(", ");
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Fibonacci Series Generator</h1>
+        <button onclick="displayFibonacci()">Generate Series</button>
+        <p id="result"></p>
+    </div>
+</body>
+</html>

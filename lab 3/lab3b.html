@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demonstration of Number and Its Square</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+                background-color: #f4f4f9;
+            }
+            .container {
+                text-align: center;
+                background: white;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                max-width: 500px;
+                width: 100%;
+            }
+            h1 {
+                color: #333;
+                margin-bottom: 20px;
+            }
+            .results {
+                margin-top: 20px;
+                text-align: left;
+                border-top: 1px solid #ddd;
+                padding-top: 10px;
+                max-height: 300px;
+                overflow-y: auto;
+            }
+            .results p {
+                background: #f9f9f9;
+                padding: 10px;
+                border-radius: 4px;
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+                margin: 5px 0;
+            }
+            button {
+                background-color: #007bff;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                font-size: 16px;
+                border-radius: 4px;
+                cursor: pointer;
+                margin-top: 20px;
+            }
+            button:hover {
+                background-color: #0056b3;
+            }
+        </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Demonstration of Number and Its Square</h1>
+        <p>Click the button below to calculate the squares of numbers.</p>
+        <button onclick="calculateSquares()">Calculate Squares</button>
+        <div class="results" id="results"></div>
+    </div>
+
+    <script type="text/javascript">
+        function calculateSquares() {
+            var n = parseInt(prompt("Enter a positive value for n:"), 10);
+            var resultsDiv = document.getElementById('results');
+            
+            while (isNaN(n) || n <= 0) {
+                alert("Enter a positive value");
+                n = parseInt(prompt("Enter a positive value for n:"), 10);
+            }
+
+            var resultHtml = "<h2>The squares of numbers are:</h2>";
+            for (var i = 1; i <= n; i++) {
+                resultHtml += "<p>" + i + " is " + (i * i) + "</p>";
+            }
+            
+            resultsDiv.innerHTML = resultHtml;
+        }
+    </script>
+</body>
+</html>
