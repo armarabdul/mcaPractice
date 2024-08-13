@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>DOM Manipulation with Styles</title>
+    <style type="text/css">
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        h1 {
+            color: #0044cc;
+            text-align: center;
+            border-bottom: 2px solid #0044cc;
+            padding-bottom: 10px;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        #content {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+        }
+
+        .highlight {
+            background-color: #ffeb3b;
+        }
+
+        form {
+            background-color: #eeeeee;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        form input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 60%;
+            margin-right: 10px;
+        }
+
+        form input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        form input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        p a {
+            color: #0044cc;
+            text-decoration: none;
+        }
+
+        p a:hover {
+            text-decoration: underline;
+        }
+
+        p button {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        p button:hover {
+            background-color: #c82333;
+        }
+    </style>
+    <script type="text/javascript">
+        function changeHeader() {
+            var header = document.getElementById("header");
+            header.innerHTML = "New Header Text";
+            header.style.color = "blue";
+        }
+
+        function addNewParagraph() {
+            var newPara = document.createElement("p");
+            newPara.innerHTML = "This is a new paragraph.";
+            document.getElementById("content").appendChild(newPara);
+        }
+
+        function highlightFirstChild() {
+            var parent = document.getElementById("content");
+            var firstChild = parent.firstChild.nextSibling;
+            firstChild.className = "highlight";
+        }
+
+        function showAlert() {
+            alert("Button clicked!");
+        }
+
+        function showFormValue() {
+            var inputValue = document.getElementById("userInput").value;
+            alert("You entered: " + inputValue);
+        }
+
+        function changeLink() {
+            var link = document.getElementById("myLink");
+            link.setAttribute("href", "https://www.example.com");
+            alert("Link updated!");
+        }
+    </script>
+</head>
+<body onload="showSquares()">
+    <h1 id="header">DOM Manipulation Examples</h1>
+    
+    <button onclick="changeHeader()">Change Header</button>
+    <button onclick="addNewParagraph()">Add New Paragraph</button>
+    <button onclick="highlightFirstChild()">Highlight First Paragraph</button>
+    <button onclick="showAlert()">Click Me</button>
+
+    <div id="content">
+        <p>This is the first paragraph.</p>
+        <p>This is the second paragraph.</p>
+    </div>
+
+    <form onsubmit="showFormValue(); return false;">
+        <label for="userInput">Enter something: </label>
+        <input type="text" id="userInput" name="userInput"/>
+        <input type="submit" value="Show Value"/>
+    </form>
+
+    <p>
+        <a id="myLink" href="https://www.initiallink.com">Visit this link</a>
+        <button onclick="changeLink()">Change Link</button>
+    </p>
+</body>
+</html>
