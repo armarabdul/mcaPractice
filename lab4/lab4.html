@@ -1,0 +1,151 @@
+<html>
+
+<head>
+    <title> Orders for Popcorn </title>
+</head>
+
+<body>
+    <h1> Welcome to Millenium Gymnastics Booster Club Popcorn Sales</h1>
+    <form>
+        <table>
+            <tr>
+            </tr>
+            <tr>
+            </tr>
+            <tr>
+            </tr>
+            <td><b> Buyer's Name:</td></b>
+            <td><input type="text" /></td><br />
+            <td><b> Street Address:</td></b>
+            <td><input type="text" /></td><br />
+            <td><b>City, State, Zipcode:</td></b>
+            <td><input type="text" /></td><br />
+        </table>
+        <table border="2">
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            </tr>
+            <tr>
+                <td> Unpopped Popcorn(1 lb.)</td>
+                <td>$3.00</td>
+                <td><input type="text" size="2" /></td>
+            </tr>
+            <tr>
+            </tr>
+            <tr>
+            </tr>
+            <tr>
+                <td> Caramel Popcorn(2 lb.Canister)</td>
+                <td>$3.50</td>
+                <td><input type="text" size="2" /></td>
+                <td> Caramel Nut Popcorn(2 lb.Canister)</td>
+                <td>$4.50</td>
+                <td><input type="text" size="2" /></td>
+                <td> Toffey Nut Popcorn(2 lb.Canister)</td>
+                <td>$5.00</td>
+                <td><input type="text" size="2" /></td>
+            </tr>
+        </table>
+        <h2><b>Payment Method:</b></h2>
+        <input type="radio" name="s" />Visa
+        <input type="radio" name="s" />Master Card
+        <input type="radio" name="s" />Discover
+        <input type="radio" name="s" />Check
+        <br>
+        </br>
+        <input type="submit" value=Submit Order" />
+        <input type="reset" value=Clear Order Form" />
+    </form>
+</body>
+
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handling Example</title>
+    <script type="text/javascript">
+        // Function to handle the click event
+        function handleClick() {
+            alert('Button was clicked!');
+        }
+
+        // Adding event listener once the DOM content is loaded
+        window.onload = function() {
+            var button = document.getElementById('myButton');
+            button.addEventListener('click', handleClick);
+        }
+    </script>
+</head>
+<body>
+    <button id="myButton">Click Me</button>
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Object Example</title>
+    <script type="text/javascript">
+        function handleClick(event) {
+            alert('Button was clicked! Event type: ' + event.type + ', Target element: ' + event.target.id);
+        }
+
+        window.onload = function() {
+            var button = document.getElementById('myButton');
+            button.addEventListener('click', handleClick);
+        }
+    </script>
+</head>
+<body>
+    <button id="myButton">Click Me</button>
+</body>
+</html> -->
+
+<!-- const pattern = /^(?:\d{3}-\d{2}-\d{4}|\d{3}-\d{3}-\d{4})$/;
+
+// Test string
+const testString1 = '123-45-6789'; // Valid SSN
+const testString2 = '123-456-7890'; // Valid phone number
+const testString3 = '123-45-678';  // Invalid
+const testString4 = '123-456-789'; // Invalid
+
+// Test the pattern
+console.log(pattern.test(testString1)); // true
+console.log(pattern.test(testString2)); // true
+console.log(pattern.test(testString3)); // false
+console.log(pattern.test(testString4)); // false
+
+const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+const email1 = 'example@example.com';
+const email2 = 'invalid-email@';
+console.log(emailPattern.test(email1)); // true
+console.log(emailPattern.test(email2)); // false
+
+const datePattern = /^\d{4}-\d{2}-\d{2}$/;
+const date1 = '2024-08-12';
+const date2 = '2024/08/12';
+console.log(datePattern.test(date1)); // true
+console.log(datePattern.test(date2)); // false
+
+const hexColorPattern = /^#([0-9A-Fa-f]{6}|[0-9A-Fa-f]{3})$/;
+const color1 = '#a3c113';
+const color2 = '#a3c';
+console.log(hexColorPattern.test(color1)); // true
+console.log(hexColorPattern.test(color2)); // true
+
+ const passwordPattern = /^(?=.[A-Za-z])(?=.\d)[A-Za-z\d]{8,}$/;
+const password1 = 'Password1';
+const password2 = 'pass';
+console.log(passwordPattern.test(password1)); // true
+console.log(passwordPattern.test(password2)); // false
+
+ const digitsPattern = /\d+/g;
+const str = 'The year is 2024 and the month is 08.';
+const digits = str.match(digitsPattern);
+console.log(digits); // ["2024", "08"] -->
