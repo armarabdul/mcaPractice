@@ -1,64 +1,42 @@
-<html>
-
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title> Orders for Popcorn </title>
-</head>
+    <title>Fruit Shop</title>
+    <script type="text/javascript">
+        var sum = 0;
 
+        function updateCost(element, price) {
+            var quantity = parseInt(document.getElementById(element).value, 10) || 0;
+            sum += price * quantity;
+        }
+
+        function displayCost() {
+            alert("Your total cost is $" + ((1.05 * sum) / 100).toFixed(2));
+            document.getElementById('orderForm').reset();
+            sum = 0;
+        }
+    </script>
+</head>
 <body>
-    <h1> Welcome to Millenium Gymnastics Booster Club Popcorn Sales</h1>
-    <form>
-        <table>
-            <tr>
-            </tr>
-            <tr>
-            </tr>
-            <tr>
-            </tr>
-            <td><b> Buyer's Name:</td></b>
-            <td><input type="text" /></td><br />
-            <td><b> Street Address:</td></b>
-            <td><input type="text" /></td><br />
-            <td><b>City, State, Zipcode:</td></b>
-            <td><input type="text" /></td><br />
-        </table>
-        <table border="2">
-            <th>Product Name</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            </tr>
-            <tr>
-                <td> Unpopped Popcorn(1 lb.)</td>
-                <td>$3.00</td>
-                <td><input type="text" size="2" /></td>
-            </tr>
-            <tr>
-            </tr>
-            <tr>
-            </tr>
-            <tr>
-                <td> Caramel Popcorn(2 lb.Canister)</td>
-                <td>$3.50</td>
-                <td><input type="text" size="2" /></td>
-                <td> Caramel Nut Popcorn(2 lb.Canister)</td>
-                <td>$4.50</td>
-                <td><input type="text" size="2" /></td>
-                <td> Toffey Nut Popcorn(2 lb.Canister)</td>
-                <td>$5.00</td>
-                <td><input type="text" size="2" /></td>
-            </tr>
-        </table>
-        <h2><b>Payment Method:</b></h2>
-        <input type="radio" name="s" />Visa
-        <input type="radio" name="s" />Master Card
-        <input type="radio" name="s" />Discover
-        <input type="radio" name="s" />Check
-        <br>
-        </br>
-        <input type="submit" value=Submit Order" />
-        <input type="reset" value=Clear Order Form" />
+    <h2>Order Form</h2>
+    <form id="orderForm" action="" onsubmit="return false">
+        <p>
+            Apple (59 cents) 
+            <input type="checkbox" onclick="updateCost('appleQty', 59);" />
+            Qty: <input type="text" id="appleQty" value="0" /><br />
+
+            Orange (49 cents) 
+            <input type="checkbox" onclick="updateCost('orangeQty', 49);" />
+            Qty: <input type="text" id="orangeQty" value="0" /><br />
+
+            Banana (39 cents) 
+            <input type="checkbox" onclick="updateCost('bananaQty', 39);" />
+            Qty: <input type="text" id="bananaQty" value="0" /><br />
+
+            <input type="submit" value="Submit" onclick="displayCost();" />
+        </p>
     </form>
 </body>
-
 </html>
 
 <!-- <!DOCTYPE html>
