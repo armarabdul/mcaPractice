@@ -39,6 +39,72 @@
 </body>
 </html>
 
+ <!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handling Example</title>
+</head>
+<body>
+    <h1>Event Handling Example</h1>
+    <form id="myForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Enter your name">
+        <br><br>
+        <label for="color">Favorite Color:</label>
+        <select id="color">
+            <option value="">Select a color</option>
+            <option value="red">Red</option>
+            <option value="blue">Blue</option>
+            <option value="green">Green</option>
+        </select>
+        <br><br>
+        <button type="submit">Submit</button>
+    </form>
+    <p id="message"></p>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Get references to the elements
+            const nameInput = document.getElementById('name');
+            const colorSelect = document.getElementById('color');
+            const form = document.getElementById('myForm');
+            const message = document.getElementById('message');
+
+            // Handle input event for the name field
+            nameInput.addEventListener('input', () => {
+                console.log('Name input changed:', nameInput.value);
+            });
+
+            // Handle change event for the color select
+            colorSelect.addEventListener('change', () => {
+                console.log('Color selected:', colorSelect.value);
+            });
+
+            // Handle submit event for the form
+            form.addEventListener('submit', (event) => {
+                event.preventDefault(); // Prevent the default form submission
+
+                // Get the form values
+                const name = nameInput.value;
+                const color = colorSelect.value;
+
+                // Display a message
+                message.textContent = `Submitted! Name: ${name}, Favorite Color: ${color}`;
+                console.log(`Form submitted with Name: ${name} and Color: ${color}`);
+            });
+
+            // Handle click event on the button
+            form.querySelector('button').addEventListener('click', () => {
+                console.log('Button clicked');
+            });
+        });
+    </script>
+</body>
+</html> -->
+
+
 <!-- <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,6 +128,8 @@
     <button id="myButton">Click Me</button>
 </body>
 </html> -->
+
+
 
 <!-- <!DOCTYPE html>
 <html lang="en">
