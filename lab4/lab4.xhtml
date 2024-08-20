@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Fruit Shop</title>
+    <script type="text/javascript">
+        var sum = 0;
+
+        function updateCost(element, price) {
+            var quantity = parseInt(document.getElementById(element).value, 10) || 0;
+            sum += price * quantity;
+        }
+
+        function displayCost() {
+            alert("Your total cost is $" + ((1.05 * sum) / 100).toFixed(2));
+            document.getElementById('orderForm').reset();
+            sum = 0;
+        }
+    </script>
+</head>
+<body>
+    <h2>Order Form</h2>
+    <form id="orderForm" action="" onsubmit="return false">
+        <p>
+            Apple (59 cents) 
+            <input type="checkbox" onclick="updateCost('appleQty', 59);" />
+            Qty: <input type="text" id="appleQty" value="0" /><br />
+
+            Orange (49 cents) 
+            <input type="checkbox" onclick="updateCost('orangeQty', 49);" />
+            Qty: <input type="text" id="orangeQty" value="0" /><br />
+
+            Banana (39 cents) 
+            <input type="checkbox" onclick="updateCost('bananaQty', 39);" />
+            Qty: <input type="text" id="bananaQty" value="0" /><br />
+
+            <input type="submit" value="Submit" onclick="displayCost();" />
+        </p>
+    </form>
+</body>
+</html>
+
+Develop, test and validate an XHTML document that has checkboxes for apple (59 cents each), orange (49 cents each), and banana (39 cents each) along with submit button. Each check boxes should have its own onclick event handler. These handlers must add the cost of their fruit to a total cost. An event handler for the submit button must produce an alert window with the message „your total cost is Sxxx", where xxx is the total cost of the chose fruit, including 5 percent sales tax. This handler must return „false" (to avoid actual submission of the form data). Modify the document to accept quantity for each item using textboxes.
+ <!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handling Example</title>
+</head>
+<body>
+    <h1>Event Handling Example</h1>
+    <form id="myForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Enter your name">
+        <br><br>
+        <label for="color">Favorite Color:</label>
+        <select id="color">
+            <option value="">Select a color</option>
+            <option value="red">Red</option>
+            <option value="blue">Blue</option>
+            <option value="green">Green</option>
+        </select>
+        <br><br>
+        <button type="submit">Submit</button>
+    </form>
+    <p id="message"></p>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Get references to the elements
+            const nameInput = document.getElementById('name');
+            const colorSelect = document.getElementById('color');
+            const form = document.getElementById('myForm');
+            const message = document.getElementById('message');
+
+            // Handle input event for the name field
+            nameInput.addEventListener('input', () => {
+                console.log('Name input changed:', nameInput.value);
+            });
+
+            // Handle change event for the color select
+            colorSelect.addEventListener('change', () => {
+                console.log('Color selected:', colorSelect.value);
+            });
+
+            // Handle submit event for the form
+            form.addEventListener('submit', (event) => {
+                event.preventDefault(); // Prevent the default form submission
+
+                // Get the form values
+                const name = nameInput.value;
+                const color = colorSelect.value;
+
+                // Display a message
+                message.textContent = `Submitted! Name: ${name}, Favorite Color: ${color}`;
+                console.log(`Form submitted with Name: ${name} and Color: ${color}`);
+            });
+
+            // Handle click event on the button
+            form.querySelector('button').addEventListener('click', () => {
+                console.log('Button clicked');
+            });
+        });
+    </script>
+</body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handling Example</title>
+    <script type="text/javascript">
+        // Function to handle the click event
+        function handleClick() {
+            alert('Button was clicked!');
+        }
+
+        // Adding event listener once the DOM content is loaded
+        window.onload = function() {
+            var button = document.getElementById('myButton');
+            button.addEventListener('click', handleClick);
+        }
+    </script>
+</head>
+<body>
+    <button id="myButton">Click Me</button>
+</body>
+</html> -->
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Object Example</title>
+    <script type="text/javascript">
+        function handleClick(event) {
+            alert('Button was clicked! Event type: ' + event.type + ', Target element: ' + event.target.id);
+        }
+
+        window.onload = function() {
+            var button = document.getElementById('myButton');
+            button.addEventListener('click', handleClick);
+        }
+    </script>
+</head>
+<body>
+    <button id="myButton">Click Me</button>
+</body>
+</html> -->
+
+<!-- const pattern = /^(?:\d{3}-\d{2}-\d{4}|\d{3}-\d{3}-\d{4})$/;
+
+// Test string
+const testString1 = '123-45-6789'; // Valid SSN
+const testString2 = '123-456-7890'; // Valid phone number
+const testString3 = '123-45-678';  // Invalid
+const testString4 = '123-456-789'; // Invalid
+
+// Test the pattern
+console.log(pattern.test(testString1)); // true
+console.log(pattern.test(testString2)); // true
+console.log(pattern.test(testString3)); // false
+console.log(pattern.test(testString4)); // false
+
+const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+const email1 = 'example@example.com';
+const email2 = 'invalid-email@';
+console.log(emailPattern.test(email1)); // true
+console.log(emailPattern.test(email2)); // false
+
+const datePattern = /^\d{4}-\d{2}-\d{2}$/;
+const date1 = '2024-08-12';
+const date2 = '2024/08/12';
+console.log(datePattern.test(date1)); // true
+console.log(datePattern.test(date2)); // false
+
+const hexColorPattern = /^#([0-9A-Fa-f]{6}|[0-9A-Fa-f]{3})$/;
+const color1 = '#a3c113';
+const color2 = '#a3c';
+console.log(hexColorPattern.test(color1)); // true
+console.log(hexColorPattern.test(color2)); // true
+
+ const passwordPattern = /^(?=.[A-Za-z])(?=.\d)[A-Za-z\d]{8,}$/;
+const password1 = 'Password1';
+const password2 = 'pass';
+console.log(passwordPattern.test(password1)); // true
+console.log(passwordPattern.test(password2)); // false
+
+ const digitsPattern = /\d+/g;
+const str = 'The year is 2024 and the month is 08.';
+const digits = str.match(digitsPattern);
+console.log(digits); // ["2024", "08"] -->
