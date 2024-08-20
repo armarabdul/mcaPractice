@@ -20,11 +20,13 @@
     <h2>Find Left-Most Vowel</h2>
     <input type="text" id="stringInput" placeholder="Enter a string">
     <button onclick="findLeftMostVowel()">Find Vowel Position</button>
+    <button onclick="resetStringInput()">Reset</button>
     <p id="vowelResult"></p>
 
     <h2>Reverse Digits of a Number</h2>
     <input type="number" id="numberInput" placeholder="Enter a number">
     <button onclick="reverseDigits()">Reverse Digits</button>
+    <button onclick="resetNumberInput()">Reset</button>
     <p id="numberResult"></p>
 
     <script>
@@ -49,6 +51,16 @@
             const num = document.getElementById("numberInput").value;
             const reversedNum = num.split('').reverse().join('');
             document.getElementById("numberResult").innerText = `Reversed number: ${reversedNum}`;
+        }
+
+        function resetStringInput() {
+            document.getElementById("stringInput").value = '';
+            document.getElementById("vowelResult").innerText = '';
+        }
+
+        function resetNumberInput() {
+            document.getElementById("numberInput").value = '';
+            document.getElementById("numberResult").innerText = '';
         }
     </script>
 </body>
