@@ -67,3 +67,466 @@
     </script>
 </body>
 </html>
+
+<!-- write a program to find the median of an array -->
+
+<!-- function calculateMedian(arr) {
+    // Sort the array in ascending order using a traditional function
+    arr.sort(function(a, b) {
+        return a - b;
+    });
+    
+    const len = arr.length;
+    const middle = Math.floor(len / 2);
+    
+    // If the length is odd, return the middle element
+    if (len % 2 !== 0) {
+        return arr[middle];
+    }
+    
+    // If the length is even, return the average of the two middle elements
+    return (arr[middle - 1] + arr[middle]) / 2;
+}
+
+// Example usage:
+const array = [3, 1, 4, 1, 5, 9, 2];
+console.log("Median:", calculateMedian(array));  // Output: Median: 3
+
+const evenArray = [1, 2, 3, 4, 5, 6];
+console.log("Median:", calculateMedian(evenArray));  // Output: Median: 3.5 -->
+
+<!-- write a javascript program to show handling events from textbox and password elements -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handling Example</title>
+    <style>
+        .input-field {
+            margin: 10px 0;
+        }
+        .output {
+            margin: 10px 0;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <label for="textInput">Text Input:</label>
+        <input type="text" id="textInput" class="input-field">
+    </div>
+    <div>
+        <label for="passwordInput">Password Input:</label>
+        <input type="password" id="passwordInput" class="input-field">
+    </div>
+    <div class="output" id="output"></div>
+
+    <script>
+        // Get references to the input fields and output div
+        const textInput = document.getElementById('textInput');
+        const passwordInput = document.getElementById('passwordInput');
+        const output = document.getElementById('output');
+
+        // Function to handle text input events
+        function handleTextInput(event) {
+            const value = event.target.value;
+            output.textContent = `Text Input Value: ${value}`;
+        }
+
+        // Function to handle password input events
+        function handlePasswordInput(event) {
+            const value = event.target.value;
+            output.textContent = `Password Input Value: ${value}`;
+        }
+
+        // Add event listeners for text and password inputs
+        textInput.addEventListener('input', handleTextInput);
+        passwordInput.addEventListener('input', handlePasswordInput);
+    </script>
+</body>
+</html> -->
+
+<!-- demonstrate staking of elements using programming examples. Use div tag
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stacking Elements Example</title>
+    <style>
+        .container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            border: 2px solid black;
+            margin: 20px;
+        }
+
+        .box {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border: 2px solid;
+            color: white;
+            text-align: center;
+            line-height: 100px; /* Centers the text vertically */
+            font-weight: bold;
+        }
+
+        .box1 {
+            background-color: red;
+            top: 0;
+            left: 0;
+            z-index: 1; /* Lowest stacking order */
+        }
+
+        .box2 {
+            background-color: blue;
+            top: 30px;
+            left: 30px;
+            z-index: 2; /* Higher stacking order */
+        }
+
+        .box3 {
+            background-color: green;
+            top: 60px;
+            left: 60px;
+            z-index: 3; /* Highest stacking order */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box box1">Box 1</div>
+        <div class="box box2">Box 2</div>
+        <div class="box box3">Box 3</div>
+    </div>
+</body>
+</html>
+ -->
+
+ <!-- explain positioning of elements in javascript?
+
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Positioning with JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            margin: 20px;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+            position: relative; /* Default positioning */
+        }
+
+        .box-info {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .box-info h2 {
+            margin-top: 0;
+        }
+
+        .box-info p {
+            margin: 5px 0;
+        }
+
+        .box-info code {
+            background-color: #f4f4f4;
+            padding: 3px 5px;
+            border-radius: 3px;
+        }
+
+        .box-info pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box-info">
+            <h2>CSS Positioning Basics</h2>
+            <p><strong>static:</strong> The default positioning. Elements are positioned according to the normal flow of the document. The <code>top</code>, <code>right</code>, <code>bottom</code>, and <code>left</code> properties have no effect.</p>
+            <p><strong>relative:</strong> The element is positioned relative to its normal position. The <code>top</code>, <code>right</code>, <code>bottom</code>, and <code>left</code> properties offset the element from where it would normally be.</p>
+            <p><strong>absolute:</strong> The element is positioned relative to its closest positioned ancestor (i.e., an ancestor element with a position of <code>relative</code>, <code>absolute</code>, or <code>fixed</code>). If no such ancestor exists, it is positioned relative to the initial containing block (usually the <code>&lt;html&gt;</code> element).</p>
+            <p><strong>fixed:</strong> The element is positioned relative to the viewport (the visible part of the web page), meaning it stays in the same position even when the page is scrolled.</p>
+            <p><strong>sticky:</strong> The element switches between relative and fixed positioning depending on the scroll position. It acts like relative until the viewport reaches a specified offset, then it behaves like fixed.</p>
+        </div>
+
+        <div id="box" class="box">Box</div>
+        <button onclick="moveBox()">Move Box</button>
+    </div>
+
+    <script>
+        function moveBox() {
+            // Get the box element
+            const box = document.getElementById('box');
+
+            // Change the position using JavaScript
+            box.style.position = 'absolute'; // Change to absolute positioning
+            box.style.top = '100px';         // Move down 100px from the top of the nearest positioned ancestor
+            box.style.left = '150px';        // Move right 150px from the left of the nearest positioned ancestor
+
+            // Optional: Add more styles or interactions
+            box.style.backgroundColor = 'lightcoral'; // Change background color to see effect
+        }
+    </script>
+</body>
+</html> -->
+
+<!-- explain screen out put and keyboard input in javascript,?
+
+
+Screen Output
+Screen output in JavaScript refers to displaying information to the user via the browser's viewport. This can be done using various methods:
+
+console.log():
+
+Used for debugging purposes. It outputs messages to the browser's console.
+Example:
+javascript
+Copy code
+console.log('Hello, World!');
+alert():
+
+Displays an alert dialog with a specified message.
+Example:
+javascript
+Copy code
+alert('This is an alert message!');
+document.write():
+
+Writes directly to the HTML document. Generally used for testing or in very simple scripts.
+Example:
+javascript
+Copy code
+document.write('Hello, World!');
+Manipulating DOM Elements:
+
+Updating the content of HTML elements using JavaScript. This is a common and flexible approach.
+Example:
+html
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screen Output Example</title>
+</head>
+<body>
+    <div id="output">This text will be updated.</div>
+    <button onclick="updateOutput()">Update Output</button>
+
+    <script>
+        function updateOutput() {
+            document.getElementById('output').textContent = 'The content has been updated!';
+        }
+    </script>
+</body>
+</html>
+Keyboard Input
+Keyboard input in JavaScript involves capturing and responding to user actions via the keyboard. This can be achieved using event listeners for events such as keydown, keypress, and keyup.
+
+keydown Event:
+
+Triggered when a key is pressed down.
+Example:
+javascript
+Copy code
+document.addEventListener('keydown', function(event) {
+    console.log('Key pressed:', event.key);
+});
+keypress Event:
+
+Triggered when a key that produces a character value is pressed. (Note: This event is deprecated in some contexts and not recommended for new code.)
+Example:
+javascript
+Copy code
+document.addEventListener('keypress', function(event) {
+    console.log('Key pressed:', event.key);
+});
+keyup Event:
+
+Triggered when a key is released.
+Example:
+javascript
+Copy code
+document.addEventListener('keyup', function(event) {
+    console.log('Key released:', event.key);
+});
+Example: Combining Screen Output and Keyboard Input
+Here’s a simple HTML page that demonstrates handling keyboard input and updating the screen based on the key pressed:
+
+html
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard Input Example</title>
+    <style>
+        #display {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="display">Press any key!</div>
+
+    <script>
+        document.addEventListener('keydown', function(event) {
+            // Get the key that was pressed
+            const key = event.key;
+            
+            // Update the content of the #display element
+            document.getElementById('display').textContent = `You pressed: ${key}`;
+        });
+    </script>
+</body>
+</html> -->
+
+
+<!-- programs that might be asked in your theory exams.
+
+Checking for a Prime Number
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Number Check</title>
+</head>
+<body>
+    <h2>Prime Number Checker</h2>
+    <input type="number" id="numberInput" placeholder="Enter a number" />
+    <button onclick="checkPrime()">Check if Prime</button>
+    <p id="result"></p>
+
+    <script>
+        function checkPrime() {
+            const num = parseInt(document.getElementById('numberInput').value);
+            let result = '';
+
+            if (isNaN(num) || num <= 1) {
+                result = 'Please enter a number greater than 1.';
+            } else {
+                let isPrime = true;
+
+                for (let i = 2; i <= Math.sqrt(num); i++) {
+                    if (num % i === 0) {
+                        isPrime = false;
+                        break;
+                    }
+                }
+
+                result = isPrime ? `${num} is a prime number.` : `${num} is not a prime number.`;
+            }
+
+            document.getElementById('result').textContent = result;
+        }
+    </script>
+</body>
+</html>
+
+
+Calculating Factorials
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial Calculator</title>
+</head>
+<body>
+    <h2>Factorial Calculator</h2>
+    <input type="number" id="factorialInput" placeholder="Enter a number" />
+    <button onclick="calculateFactorial()">Calculate Factorial</button>
+    <p id="factorialResult"></p>
+
+    <script>
+        function calculateFactorial() {
+            const num = parseInt(document.getElementById('factorialInput').value);
+            let result = 1;
+
+            if (isNaN(num) || num < 0) {
+                result = 'Please enter a non-negative number.';
+            } else {
+                for (let i = 1; i <= num; i++) {
+                    result *= i;
+                }
+
+                result = `The factorial of ${num} is ${result}.`;
+            }
+
+            document.getElementById('factorialResult').textContent = result;
+        }
+    </script>
+</body>
+</html>
+
+
+Finding the Largest Number in an Array
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Largest Number</title>
+</head>
+<body>
+    <h2>Find the Largest Number in Array</h2>
+    <input type="text" id="arrayInput" placeholder="Enter numbers separated by commas" />
+    <button onclick="findLargest()">Find Largest</button>
+    <p id="largestResult"></p>
+
+    <script>
+        function findLargest() {
+            const input = document.getElementById('arrayInput').value;
+            const numbers = input.split(',').map(num => parseFloat(num.trim()));
+            let result = '';
+
+            if (numbers.some(isNaN)) {
+                result = 'Please enter valid numbers separated by commas.';
+            } else {
+                const largest = Math.max(...numbers);
+                result = `The largest number is ${largest}.`;
+            }
+
+            document.getElementById('largestResult').textContent = result;
+        }
+    </script>
+</body>
+</html> -->
