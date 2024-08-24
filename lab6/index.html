@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Paragraph Stacking Example</title>
+    <style type="text/css">
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        .container {
+            position: relative;
+            height: 300px;
+            width: 300px;
+            overflow: hidden;
+        }
+        .paragraph {
+            position: absolute;
+            width: 100%;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            transition: all 0.3s ease;
+        }
+        #para1 { top: 0; z-index: 3; }
+        #para2 { top: 50px; z-index: 2; }
+        #para3 { top: 100px; z-index: 1; }
+    </style>
+    <script type="text/javascript">
+        var paragraphs = [];
+
+        function setup() {
+            paragraphs = [
+                document.getElementById('para1'),
+                document.getElementById('para2'),
+                document.getElementById('para3')
+            ];
+        }
+
+        function bringToTop(index) {
+            var currentParagraph = paragraphs.splice(index, 1)[0];
+            paragraphs.forEach(function(para, i) {
+                para.style.top = (i * 50) + 'px';
+                para.style.zIndex = (paragraphs.length - i);
+            });
+            paragraphs.unshift(currentParagraph);
+            currentParagraph.style.top = '0px';
+            currentParagraph.style.zIndex = paragraphs.length;
+        }
+    </script>
+</head>
+<body onload="setup()">
+    <div class="container">
+        <div id="para1" class="paragraph" onmouseover="bringToTop(0)">
+            <p>This is the first paragraph. Hover over me!</p>
+        </div>
+        <div id="para2" class="paragraph" onmouseover="bringToTop(1)">
+            <p>This is the second paragraph. Hover over me!</p>
+        </div>
+        <div id="para3" class="paragraph" onmouseover="bringToTop(2)">
+            <p>This is the third paragraph. Hover over me!</p>
+        </div>
+    </div>
+</body>
+</html>
