@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Events Example</title>
+    <style>
+        #myBox {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            color: white;
+            text-align: center;
+            line-height: 100px;
+            margin: 20px;
+        }
+        #myInput { margin: 20px; }
+    </style>
+</head>
+<body>
+    <button id="myButton">Click Me</button>
+    <div id="myBox">Hover Me</div>
+    <form id="myForm">
+        <input type="text" id="myInput" placeholder="Type here">
+        <button type="submit">Submit</button>
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Click event
+            $('#myButton').click(function() {
+                alert('Button clicked!');
+            });
+
+            // Hover event
+            $('#myBox').hover(
+                function() {
+                    $(this).css('background-color', 'yellow');
+                },
+                function() {
+                    $(this).css('background-color', 'blue');
+                }
+            );
+
+            // Submit event
+            $('#myForm').submit(function(event) {
+                event.preventDefault();
+                alert('Form submitted!');
+            });
+
+            // Change event
+            $('#myInput').change(function() {
+                alert('Input value changed to: ' + $(this).val());
+            });
+
+            // Focus event
+            $('#myInput').focus(function() {
+                $(this).css('border', '2px solid green');
+            });
+
+            // Blur event
+            $('#myInput').blur(function() {
+                $(this).css('border', '1px solid grey');
+            });
+
+            // Keydown event
+            $(document).keydown(function(event) {
+                console.log('Key pressed: ' + event.key);
+            });
+
+            // Resize event
+            $(window).resize(function() {
+                $('#myBox').text('Window resized! Width: ' + $(window).width());
+            });
+        });
+    </script>
+</body>
+</html>

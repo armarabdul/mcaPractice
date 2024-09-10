@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Box Animation</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            position: relative;
+        }
+        #controls {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <div id="controls">
+        <button id="startAnimation">Start Animation</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#startAnimation').click(function() {
+                $('#box').animate({
+                    width: '200px',       // Increase width
+                    height: '200px',      // Increase height
+                    left: '300px',        // Move box to the right
+                    top: '200px',         // Move box down
+                    opacity: 0.5          // Change opacity
+                }, 2000, 'swing', function() {
+                    // Callback function after animation completes
+                    $('#box').animate({
+                        width: '100px',
+                        height: '100px',
+                        left: '0px',
+                        top: '0px',
+                        opacity: 1
+                    }, 2000);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

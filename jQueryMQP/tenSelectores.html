@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Selectors Example</title>
+    <style>
+        #header { background-color: lightgrey; }
+        .highlight { color: green; }
+        #list { list-style: none; }
+        #list li { padding: 5px; }
+        #container p { margin: 10px 0; }
+        input[type="text"] { margin: 5px; }
+    </style>
+</head>
+<body>
+    <div id="header">Header</div>
+    <div id="container">
+        <p class="highlight">This is an important paragraph.</p>
+        <p>This is another paragraph.</p>
+    </div>
+    <ul id="list">
+        <li>First item</li>
+        <li>Second item</li>
+        <li>Third item</li>
+    </ul>
+    <input type="text" value="Sample text">
+    <input type="password" value="Password">
+    <input type="text" value="Another text">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('p').css('color', 'red'); // Element Selector
+            $('#header').css('background-color', 'blue'); // ID Selector
+            $('.highlight').css('font-weight', 'bold'); // Class Selector
+            $('input[type="text"]').css('border', '2px solid green'); // Attribute Selector
+            $('#container p').css('font-size', '18px'); // Descendant Selector
+            $('#list > li').css('color', 'purple'); // Child Selector
+            $('h2 + p').css('margin-top', '20px'); // Adjacent Sibling Selector
+            $('h2 ~ p').css('font-style', 'italic'); // General Sibling Selector
+            $('ul li:first-child').css('font-weight', 'bold'); // First Child Selector
+            $('p:contains("important")').css('background-color', 'yellow'); // Contains Selector
+        });
+    </script>
+</body>
+</html>

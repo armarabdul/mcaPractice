@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Selectors Example</title>
+    <style>
+        .highlight { background-color: yellow; }
+        .important { font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Header</h1>
+        <p class="intro">This is an introduction paragraph.</p>
+        <p class="highlight">Highlighted paragraph</p>
+        <ul id="list">
+            <li data-type="fruit">Apple</li>
+            <li data-type="vegetable">Carrot</li>
+            <li data-type="fruit">Banana</li>
+        </ul>
+        <input type="text" id="name" value="John Doe">
+        <input type="checkbox" id="subscribe" checked>
+        <button id="btn">Click Me!</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Basic Selectors
+            $('#container').css('border', '2px solid black'); // Select by ID
+            $('.highlight').css('color', 'red'); // Select by class
+            
+            // Attribute Selectors
+            $('[data-type="fruit"]').css('font-style', 'italic'); // Select by attribute
+            $('input[type="text"]').css('border', '2px solid green'); // Select by attribute value
+
+            // Hierarchy Selectors
+            $('#list li').css('list-style-type', 'circle'); // Select all li elements inside ul
+            $('#list > li').css('color', 'blue'); // Select only direct children of ul
+
+            // Filter Selectors
+            $('li:first').addClass('important'); // Select the first li element
+            $('li:even').css('background-color', 'lightgrey'); // Select even indexed li elements
+
+            // Form Selectors
+            $(':checked').next().css('background-color', 'lightblue'); // Select checked input and style the next element
+
+            // Content Selectors
+            $('p:contains("Highlighted")').css('font-size', '20px'); // Select p elements that contain specific text
+        });
+    </script>
+</body>
+</html>
