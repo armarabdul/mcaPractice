@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Methods Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #example {
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        .box {
+            border: 1px solid #ddd;
+            margin: 5px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="example">
+        <p class="box">Initial content.</p>
+    </div>
+    <button id="getText">Get Text Content</button>
+    <button id="setText">Set Text Content</button>
+    <button id="getAttr">Get Attribute</button>
+    <button id="setAttr">Set Attribute</button>
+    <button id="appendContent">Append Content</button>
+    <button id="prependContent">Prepend Content</button>
+    <button id="removeContent">Remove Content</button>
+    <button id="emptyContent">Empty Content</button>
+    <p id="output"></p>
+
+    <script>
+        $(document).ready(function() {
+            // Get Text Content
+            $('#getText').click(function() {
+                var text = $('#example p').text();
+                $('#output').text('Current Text Content: ' + text);
+            });
+
+            // Set Text Content
+            $('#setText').click(function() {
+                $('#example p').text('New text set by .text()');
+                $('#output').text('Text content has been set.');
+            });
+
+            // Get Attribute
+            $('#getAttr').click(function() {
+                var classAttr = $('#example p').attr('class');
+                $('#output').text('Current Class Attribute: ' + classAttr);
+            });
+
+            // Set Attribute
+            $('#setAttr').click(function() {
+                $('#example p').attr('class', 'box new-class');
+                $('#output').text('Class attribute has been set.');
+            });
+
+            // Append Content
+            $('#appendContent').click(function() {
+                $('#example').append('<p class="box">Appended content!</p>');
+                $('#output').text('Content has been appended.');
+            });
+
+            // Prepend Content
+            $('#prependContent').click(function() {
+                $('#example').prepend('<p class="box">Prepended content!</p>');
+                $('#output').text('Content has been prepended.');
+            });
+
+            // Remove Content
+            $('#removeContent').click(function() {
+                $('#example p').first().remove();
+                $('#output').text('First paragraph has been removed.');
+            });
+
+            // Empty Content
+            $('#emptyContent').click(function() {
+                $('#example').empty();
+                $('#output').text('Content of #example has been emptied.');
+            });
+        });
+    </script>
+</body>
+</html>
