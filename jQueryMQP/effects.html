@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Effects Demo</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #box {
+            width: 200px;
+            height: 100px;
+            background-color: lightblue;
+            margin-top: 20px;
+            display: none; /* Initially hidden */
+        }
+    </style>
+</head>
+<body>
+    <button id="fadeInBtn">Fade In</button>
+    <button id="fadeOutBtn">Fade Out</button>
+    <button id="showBtn">Show</button>
+    <button id="hideBtn">Hide</button>
+    <button id="slideDownBtn">Slide Down</button>
+    <button id="slideUpBtn">Slide Up</button>
+
+    <div id="box">Hello, I am a box!</div>
+
+    <script>
+        $(document).ready(function(){
+            $("#fadeInBtn").click(function(){
+                $("#box").fadeIn();
+            });
+
+            $("#fadeOutBtn").click(function(){
+                $("#box").fadeOut();
+            });
+
+            $("#showBtn").click(function(){
+                $("#box").show();
+            });
+
+            $("#hideBtn").click(function(){
+                $("#box").hide();
+            });
+
+            $("#slideDownBtn").click(function(){
+                $("#box").slideDown();
+            });
+
+            $("#slideUpBtn").click(function(){
+                $("#box").slideUp();
+            });
+        });
+    </script>
+</body>
+</html>

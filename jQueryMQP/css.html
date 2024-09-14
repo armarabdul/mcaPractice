@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery CSS Methods Demo</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .box {
+            width: 200px;
+            height: 100px;
+            margin-top: 20px;
+            background-color: lightblue;
+            border: 2px solid black;
+        }
+        .highlight {
+            border-color: red;
+            background-color: lightyellow;
+        }
+        .instructions {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>jQuery CSS Methods Demo</h2>
+    
+    <div class="instructions">
+        <p><strong>css(propertyName):</strong> Retrieves the current computed value of a CSS property for the first element in the set of matched elements.</p>
+        <p><strong>css(propertyName, value):</strong> Sets one or more CSS properties for the set of matched elements.</p>
+        <p><strong>css(propertiesObject):</strong> Sets multiple CSS properties for the set of matched elements using an object.</p>
+        <p><strong>addClass(className):</strong> Adds one or more classes to each element in the set of matched elements.</p>
+        <p><strong>removeClass(className):</strong> Removes one or more classes from each element in the set of matched elements.</p>
+        <p><strong>toggleClass(className):</strong> Toggles a class on and off for each element in the set of matched elements.</p>
+        <p><strong>hasClass(className):</strong> Checks if at least one of the elements in the set has the specified class.</p>
+    </div>
+    
+    <button id="getCssBtn">Get CSS</button>
+    <button id="setCssBtn">Set CSS</button>
+    <button id="setMultipleCssBtn">Set Multiple CSS</button>
+    <button id="addClassBtn">Add Class</button>
+    <button id="removeClassBtn">Remove Class</button>
+    <button id="toggleClassBtn">Toggle Class</button>
+    <button id="checkClassBtn">Check Class</button>
+
+    <div id="box" class="box">Hello, I am a box!</div>
+
+    <script>
+        $(document).ready(function(){
+            // Get CSS property
+            $("#getCssBtn").click(function(){
+                alert("Current background color: " + $("#box").css("background-color"));
+            });
+
+            // Set CSS property
+            $("#setCssBtn").click(function(){
+                $("#box").css("background-color", "lightgreen");
+                $("#box").css("border", "5px dashed blue");
+            });
+
+            // Set multiple CSS properties
+            $("#setMultipleCssBtn").click(function(){
+                $("#box").css({
+                    "border-radius": "15px",
+                    "padding": "20px"
+                });
+            });
+
+            // Add class
+            $("#addClassBtn").click(function(){
+                $("#box").addClass("highlight");
+            });
+
+            // Remove class
+            $("#removeClassBtn").click(function(){
+                $("#box").removeClass("highlight");
+            });
+
+            // Toggle class
+            $("#toggleClassBtn").click(function(){
+                $("#box").toggleClass("highlight");
+            });
+
+            // Check class
+            $("#checkClassBtn").click(function(){
+                if ($("#box").hasClass("highlight")) {
+                    alert("The box has the highlight class.");
+                } else {
+                    alert("The box does not have the highlight class.");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
