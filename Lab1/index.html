@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Farhan's Fruit Shop</title>
+    <script type="text/javascript">
+        var sum = 0;
+
+        function updateCost(element, price) {
+            var quantity = parseInt(document.getElementById(element).value, 10) || 0;
+            sum += price * quantity;
+        }
+
+        function displayCost() {
+            alert("Your total cost is $" + ((1.05 * sum) / 100).toFixed(2));
+            document.getElementById('orderForm').reset();
+            sum = 0;
+        }
+    </script>
+    <style>
+        h2{
+            background-color: black;
+            color: gold;
+            width: 80px;
+            height: 50%;
+            padding: 30%;
+            text-decoration: dashed;
+            font-size: 50px;
+        }
+        p{
+            border: 40px solid red;
+            padding: 40px;
+            margin: auto;
+            width: 70%;
+            height: 80%;
+            background-color: orange;
+            color: darkolivegreen;
+
+        }
+
+        form{
+            
+
+        }
+    </style>
+</head>
+<body>
+    <h2>Order Form</h2>
+    <form id="orderForm" action="" onsubmit="return false">
+        <p>
+            Apple (59 cents) 
+            <input type="checkbox" onclick="updateCost('appleQty', 59);" />
+            Qty: <input type="text" id="appleQty" value="10" /><br />
+
+            Orange (49 cents) 
+            <input type="checkbox" onclick="updateCost('orangeQty', 49);" />
+            Qty: <input type="text" id="orangeQty" value="0" /><br />
+
+            Banana (39 cents) 
+            <input type="checkbox" onclick="updateCost('bananaQty', 39);" />
+            Qty: <input type="text" id="bananaQty" value="0" /><br />
+
+            <input type="submit" value="Submit" onclick="displayCost();" />
+        </p>
+    </form>
+</body>
+</html>
