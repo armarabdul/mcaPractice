@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <title>AngularJS Directives Example</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+  </style>
+</head>
+<body>
+  <!-- ng-controller directive to specify the controller for this part of the HTML -->
+  <div ng-controller="greetingController">
+    <h1>Welcome to the AngularJS Example!</h1>
+    <p>Enter your name:</p>
+    <!-- ng-model directive for two-way data binding -->
+    <input type="text" ng-model="userName" placeholder="Type your name here">
+    <p>Hello, <span ng-bind="greeting"></span>!</p>
+  </div>
+
+  <script>
+    // Define the AngularJS module
+    var app = angular.module('myApp', []);
+
+    // Define the controller
+    app.controller('greetingController', function($scope) {
+      // Initialize the userName model
+      $scope.userName = '';
+      
+      // Watch for changes to the userName and update the greeting
+      $scope.$watch('userName', function(newValue) {
+        // Update the greeting based on the userName
+        if (newValue) {
+          $scope.greeting = '' + newValue + '!';
+        } else {
+          $scope.greeting = 'Stranger';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

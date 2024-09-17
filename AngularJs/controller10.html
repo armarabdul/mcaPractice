@@ -1,0 +1,128 @@
+<!-- Overview of Controllers in AngularJS
+In AngularJS, controllers are JavaScript functions that are responsible for defining the application logic and managing the data that the view displays. Controllers are used to:
+
+Initialize and manage the model data.
+Define methods to handle user actions and update the view.
+Interact with services and other AngularJS components.
+Example: AngularJS Controller in a To-Do List Application
+Let’s create a simple To-Do list application to demonstrate how controllers work in AngularJS. This example will include:
+
+Adding new tasks to the list.
+Removing tasks from the list.
+Marking tasks as completed. -->
+<!DOCTYPE html>
+<html ng-app="todoApp">
+<head>
+  <title>AngularJS Controllers Example</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    .completed { text-decoration: line-through; }
+  </style>
+</head>
+<body>
+  <!-- Define a view with a controller -->
+  <div ng-controller="todoController">
+    <h1>To-Do List</h1>
+    
+    <!-- Input field for new tasks -->
+    <p>Add a new task:</p>
+    <input type="text" ng-model="newTask" placeholder="Type your task here">
+    <button ng-click="addTask()">Add Task</button>
+    
+    <!-- List of tasks -->
+    <ul>
+      <li ng-repeat="task in tasks">
+        <input type="checkbox" ng-model="task.completed">
+        <span ng-class="{completed: task.completed}">{{ task.text }}</span>
+        <button ng-click="removeTask(task)">Remove</button>
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    // Define the AngularJS module
+    var app = angular.module('todoApp', []);
+
+    // Define the controller
+    app.controller('todoController', function($scope) {
+      // Initialize the tasks array
+      $scope.tasks = [];
+
+      // Initialize newTask model
+      $scope.newTask = '';
+
+      // Method to add a new task
+      $scope.addTask = function() {
+        if ($scope.newTask) {
+          $scope.tasks.push({
+            text: $scope.newTask,
+            completed: false
+          });
+          $scope.newTask = ''; // Clear the input field
+        }
+      };
+
+      // Method to remove a task
+      $scope.removeTask = function(task) {
+        var index = $scope.tasks.indexOf(task);
+        if (index !== -1) {
+          $scope.tasks.splice(index, 1);
+        }
+      };
+    });
+  </script>
+</body>
+</html>
+<!-- Explanation:
+AngularJS Module Definition:
+
+javascript
+Copy code
+var app = angular.module('todoApp', []);
+This creates an AngularJS module named todoApp. This module acts as the container for the application’s components, including controllers.
+Controller Definition:
+
+javascript
+Copy code
+app.controller('todoController', function($scope) {
+  // Initialize the tasks array
+  $scope.tasks = [];
+
+  // Initialize newTask model
+  $scope.newTask = '';
+
+  // Method to add a new task
+  $scope.addTask = function() {
+    if ($scope.newTask) {
+      $scope.tasks.push({
+        text: $scope.newTask,
+        completed: false
+      });
+      $scope.newTask = ''; // Clear the input field
+    }
+  };
+
+  // Method to remove a task
+  $scope.removeTask = function(task) {
+    var index = $scope.tasks.indexOf(task);
+    if (index !== -1) {
+      $scope.tasks.splice(index, 1);
+    }
+  };
+});
+$scope.tasks: An array to hold the list of tasks. Each task is an object with text and completed properties.
+$scope.newTask: A model for the new task input field.
+$scope.addTask: A method to add a new task to the tasks array. It checks if newTask is not empty, then pushes the task to the array and clears the input field.
+$scope.removeTask: A method to remove a task from the tasks array. It finds the task’s index and removes it using splice.
+View Binding:
+
+Input Field: <input type="text" ng-model="newTask" placeholder="Type your task here"> binds the input field to the newTask model, allowing real-time updates.
+Add Task Button: <button ng-click="addTask()">Add Task</button> binds the button click to the addTask method, adding the task to the list.
+Task List: <li ng-repeat="task in tasks"> iterates over the tasks array, creating a list item for each task.
+Checkbox and Text: <input type="checkbox" ng-model="task.completed"> binds the checkbox to the completed property of each task, and <span ng-class="{completed: task.completed}">{{ task.text }}</span> displays the task text with a class that marks it as completed.
+Remove Button: <button ng-click="removeTask(task)">Remove</button> binds the button click to the removeTask method, removing the specific task from the list.
+Summary
+Controllers in AngularJS manage the application's data and logic. They use $scope to expose data and methods to the view.
+Data Binding: Allows synchronization between the model and the view. Changes in the model are reflected in the view and vice versa.
+Controller Methods: Handle user interactions and update the model, which in turn updates the view. -->

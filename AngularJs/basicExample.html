@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <title>AngularJS Basic Example</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; }
+    .container { margin: 20px; }
+  </style>
+</head>
+<body>
+  <div class="container" ng-controller="myCtrl">
+    <h1>Welcome to AngularJS!</h1>
+    <p>Enter your name:</p>
+    <input type="text" ng-model="userName" placeholder="Type your name here">
+    <p>Hello, {{userName}}!</p>
+    <button ng-click="changeGreeting()">Change Greeting</button>
+    <p>{{greetingMessage}}</p>
+  </div>
+
+  <script>
+    // Define the AngularJS module
+    var app = angular.module('myApp', []);
+
+    // Define the controller
+    app.controller('myCtrl', function($scope) {
+      $scope.userName = ''; // Initialize the userName model
+
+      $scope.greetingMessage = 'Welcome to our site!'; // Initialize greeting message
+
+      // Function to change the greeting message
+      $scope.changeGreeting = function() {
+        $scope.greetingMessage = 'Thanks for visiting, ' + $scope.userName + '!';
+      };
+    });
+  </script>
+</body>
+</html>

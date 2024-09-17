@@ -1,0 +1,69 @@
+<!-- Create a simple AngularJS application where a user can input their name, and the application will display a personalized greeting. The example will demonstrate how $scope is used to bind the input field to the model and update the view. -->
+
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <title>$scope Example</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+  </style>
+</head>
+<body>
+  <!-- Define a view with a controller -->
+  <div ng-controller="greetingController">
+    <h1>$scope Example</h1>
+    
+    <!-- Input field bound to $scope.userName -->
+    <p>Enter your name:</p>
+    <input type="text" ng-model="userName" placeholder="Type your name here">
+    
+    <!-- Display personalized greeting using $scope -->
+    <p>Hello, {{ userName }}!</p>
+    
+    <!-- Button to change greeting using a controller method -->
+    <button ng-click="updateGreeting()">Update Greeting</button>
+    <p>{{ greeting }}</p>
+  </div>
+
+  <script>
+    // Define the AngularJS module
+    var app = angular.module('myApp', []);
+
+    // Define the controller
+    app.controller('greetingController', function($scope) {
+      // Initialize the model properties
+      $scope.userName = '';
+      $scope.greeting = 'Hello, World!';
+
+      // Method to update the greeting
+      $scope.updateGreeting = function() {
+        $scope.greeting = 'Hello, ' + $scope.userName + '!';
+      };
+    });
+  </script>
+</body>
+</html>
+
+<!-- Explanation:
+AngularJS Module Definition:
+
+var app = angular.module('myApp', []); creates a module named myApp. This module acts as the container for various AngularJS components.
+Controller Definition:
+
+app.controller('greetingController', function($scope) {...}); defines a controller named greetingController and injects $scope into it.
+Using $scope to Manage Data:
+
+$scope.userName: Initialized to an empty string. This property is bound to the input field using the ng-model directive. As the user types in the input field, $scope.userName is automatically updated.
+$scope.greeting: Initialized with a default greeting message. This property is used to display a personalized greeting in the view.
+Two-Way Data Binding:
+
+The input field uses ng-model="userName", which binds the input value to $scope.userName. Any changes in the input field automatically update $scope.userName.
+The {{ userName }} expression in the paragraph displays the current value of $scope.userName, reflecting updates in real-time.
+Method to Update Greeting:
+
+The updateGreeting method updates $scope.greeting based on the current value of $scope.userName. This method is called when the button is clicked, updating the view with the new greeting message.
+View Updates:
+
+When the user types in the input field, the greeting in the paragraph updates automatically due to two-way data binding.
+Clicking the "Update Greeting" button triggers the updateGreeting method, which updates $scope.greeting. The updated greeting is then displayed in the view. -->

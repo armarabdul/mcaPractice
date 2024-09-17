@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <title>AngularJS Expressions Example</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+  </style>
+</head>
+<body>
+  <div ng-controller="calculatorController">
+    <h1>AngularJS Expressions Example</h1>
+    
+    <p>Enter a number:</p>
+    <input type="number" ng-model="number1" placeholder="Enter first number">
+    
+    <p>Enter another number:</p>
+    <input type="number" ng-model="number2" placeholder="Enter second number">
+
+    <h2>Results:</h2>
+    <p>Sum: {{ number1 + number2 }}</p>
+    <p>Difference: {{ number1 - number2 }}</p>
+    <p>Product: {{ number1 * number2 }}</p>
+    <p>Quotient: {{ number2 != 0 ? number1 / number2 : 'Cannot divide by zero' }}</p>
+  </div>
+
+  <script>
+    // Define the AngularJS module
+    var app = angular.module('myApp', []);
+
+    // Define the controller
+    app.controller('calculatorController', function($scope) {
+      // Initialize the model properties
+      $scope.number1 = 0;
+      $scope.number2 = 0;
+    });
+  </script>
+</body>
+</html>
