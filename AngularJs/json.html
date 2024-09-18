@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJS Filters Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body ng-controller="MainController">
+
+    <h1>AngularJS Filters Example</h1>
+
+    <!-- JSON Filter Example -->
+    <h2>User Object (JSON Format)</h2>
+    <pre>{{ user | json }}</pre>
+
+    <!-- Currency Filter Example -->
+    <h2>Formatted Currency</h2>
+    <p>Amount: {{ amount | currency }}</p>
+    <p>Custom Currency (Euro): {{ amount | currency:'€':2 }}</p>
+
+    <!-- Number Filter Example -->
+    <h2>Formatted Number</h2>
+    <p>Value of Pi: {{ pi | number:2 }}</p>
+
+    <!-- Lowercase Filter Example -->
+    <h2>Lowercase Filter Example</h2>
+    <p>Name in Lowercase: {{ name | lowercase }}</p>
+<script>// Define the AngularJS application module
+    var app = angular.module('myApp', []);
+    
+    // Define the main controller
+    app.controller('MainController', ['$scope', function($scope) {
+        // Sample user object
+        $scope.user = {
+            name: 'John Doe',
+            age: 30,
+            occupation: 'Developer'
+        };
+    
+        // Amount for currency filter
+        $scope.amount = 1234.567;
+    
+        // Value for number filter
+        $scope.pi = 3.14159;
+    
+        // Name for lowercase filter
+        $scope.name = 'John Doe';
+    }]);
+    </script>
+</body>
+</html>

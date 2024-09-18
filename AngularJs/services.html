@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJS Services Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body ng-controller="MainController">
+
+    <h1>AngularJS Services Example</h1>
+
+    <h2>Math Service</h2>
+    <p>5 + 3 = {{ resultAdd }}</p>
+    <p>10 - 4 = {{ resultSubtract }}</p>
+
+    <h2>User Service</h2>
+    <p>User Name: {{ user.name }}</p>
+    <p>User Age: {{ user.age }}</p>
+    <input type="text" ng-model="newUserName" placeholder="Enter new name">
+    <input type="number" ng-model="newUserAge" placeholder="Enter new age">
+    <button ng-click="updateUser()">Update User</button>
+    <p>Updated User: {{ user.name }}, {{ user.age }}</p>
+
+    <script>// Define the AngularJS application module
+        var app = angular.module('myApp', []);
+        
+        // Define a custom service for math operations
+        app.service('MathService', function() {
+            this.add = function(a, b) {
+                return a + b;
+            };
+        
+            this.subtract = function(a, b) {
+                return a - b;
+            };
+        });
+        
+        // Define a custom factory service for user data
+        app.factory('UserService', function() {
+            var user = {
+                name: 'John Doe',
+                age: 30
+            };
+        
+            return {
+                getUser: function() {
+                    return user;
+                },
+                setUser: function(newUser) {
+                    user.name = newUser.name;
+                    user.age = newUser.age;
+                }
+            };
+        });
+        
+        // Define the main controller
+        app.controller('MainController', ['$scope', 'MathService', 'UserService', function($scope, MathService, UserService) {
+            // Use the MathService
+            $scope.resultAdd = MathService.add(5, 3);
+            $scope.resultSubtract = MathService.subtract(10, 4);
+        
+            // Use the UserService
+            $scope.user = UserService.getUser();
+        
+            $scope.updateUser = function() {
+                UserService.setUser({ name: $scope.newUserName, age: $scope.newUserAge });
+                $scope.user = UserService.getUser();
+                // Clear input fields
+                $scope.newUserName = '';
+                $scope.newUserAge = '';
+            };
+        }]);
+        </script>
+</body>
+</html>

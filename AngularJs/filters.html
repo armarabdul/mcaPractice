@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJS Filters Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body ng-controller="MainController">
+
+    <h1>AngularJS Filters Example</h1>
+
+    <!-- Currency Filter Example -->
+    <p>Formatted Currency: {{ amount | currency }}</p>
+
+    <!-- Date Filter Example -->
+    <p>Formatted Date: {{ today | date:'fullDate' }}</p>
+
+    <!-- OrderBy and LimitTo Filters Example -->
+    <ul>
+        <li ng-repeat="item in items | orderBy:'name' | limitTo:3">
+            {{ item.name }} - {{ item.price | currency }}
+        </li>
+    </ul>
+
+    <!-- Custom Filter Example -->
+    <p>Reversed String: {{ 'AngularJS' | reverse }}</p>
+    <script>
+    // Define the AngularJS application module
+var app = angular.module('myApp', []);
+
+// Define the main controller
+app.controller('MainController', ['$scope', function($scope) {
+    // Data to be used in the view
+    $scope.amount = 1234.567;
+    $scope.today = new Date();
+
+    $scope.items = [
+        { name: 'Item A', price: 50 },
+        { name: 'Item B', price: 20 },
+        { name: 'Item C', price: 75 },
+        { name: 'Item D', price: 100 }
+    ];
+}]);
+
+// Define a custom filter named 'reverse'
+app.filter('reverse', function() {
+    return function(input) {
+        if (typeof input === 'string') {
+            return input.split('').reverse().join('');
+        }
+        return input;
+    };
+});
+</script>
+
+</body>
+</html>

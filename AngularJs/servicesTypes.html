@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJS Services Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body ng-controller="MainController">
+
+    <h1>AngularJS Services Example</h1>
+
+    <h2>Math Service (using .service())</h2>
+    <p>5 + 3 = {{ resultAdd }}</p>
+    <p>10 - 4 = {{ resultSubtract }}</p>
+
+    <h2>User Service (using .factory())</h2>
+    <p>User Name: {{ user.name }}</p>
+    <button ng-click="updateUser()">Update User</button>
+
+    <h2>Configurable Service (using .provider())</h2>
+    <p>API URL: {{ apiUrl }}</p>
+
+    <script>// Define the AngularJS application module
+        var app = angular.module('myApp', []);
+        
+        // Service using .service()
+        app.service('MathService', function() {
+            this.add = function(a, b) {
+                return a + b;
+            };
+        
+            this.subtract = function(a, b) {
+                return a - b;
+            };
+        });
+        
+        // Factory using .factory()
+        app.factory('UserService', function() {
+            var user = {
+                name: 'John Doe'
+            };
+        
+            return {
+                getUser: function() {
+                    return user;
+                },
+                setUser: function(newName) {
+                    user.name = newName;
+                }
+            };
+        });
+        
+        // Provider using .provider()
+        app.provider('ConfigurableService', function() {
+            var apiUrl = '';
+        
+            this.setApiUrl = function(url) {
+                apiUrl = url;
+            };
+        
+            this.$get = function() {
+                return {
+                    getApiUrl: function() {
+                        return apiUrl;
+                    }
+                };
+            };
+        });
+        
+        // Configuration phase to set the API URL
+        app.config(function(ConfigurableServiceProvider) {
+            ConfigurableServiceProvider.setApiUrl('https://api.example.com');
+        });
+        
+        // Define the main controller
+        app.controller('MainController', ['$scope', 'MathService', 'UserService', 'ConfigurableService', function($scope, MathService, UserService, ConfigurableService) {
+            // Use the MathService
+            $scope.resultAdd = MathService.add(5, 3);
+            $scope.resultSubtract = MathService.subtract(10, 4);
+        
+            // Use the UserService
+            $scope.user = UserService.getUser();
+            $scope.updateUser = function() {
+                UserService.setUser('Jane Smith');
+                $scope.user = UserService.getUser();
+            };
+        
+            // Use the ConfigurableService
+            $scope.apiUrl = ConfigurableService.getApiUrl();
+        }]);
+        </script>
+</body>
+</html>
+
