@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title>AngularJS Form Validation</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        .error { color: red; }
+    </style>
+</head>
+<body ng-controller="myController">
+
+    <form name="myForm" novalidate ng-submit="submitForm()">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" ng-model="user.name" required minlength="3">
+        <span class="error" ng-show="myForm.name.$error.required && myForm.name.$touched">Name is required.</span>
+        <span class="error" ng-show="myForm.name.$error.minlength && myForm.name.$touched">Name must be at least 3 characters long.</span>
+        <br><br>
+
+        <button type="submit" ng-disabled="myForm.$invalid">Submit</button>
+    </form>
+
+    <p ng-if="submitted">Form submitted with name: {{ user.name }}</p>
+
+    <script>
+        angular.module('myApp', [])
+            .controller('myController', ['$scope', function($scope) {
+                $scope.user = {};
+                $scope.submitted = false;
+
+                $scope.submitForm = function() {
+                    if ($scope.myForm.$valid) {
+                        $scope.submitted = true;
+                    }
+                };
+            }]);
+    </script>
+
+</body>
+</html>

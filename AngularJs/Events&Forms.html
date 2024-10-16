@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title>AngularJS Events and Forms Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        .error { color: red; }
+    </style>
+</head>
+<body ng-controller="myController">
+    <h2>Forms in Angular js</h2>
+    <li>
+        <ul>Form Control: AngularJS enhances form handling by providing directives like ng-model, which binds the input field to the model. This makes it easy to keep the UI in sync with the underlying data.</ul>
+        <ul>Form Validation: AngularJS supports built-in validation for forms, which helps ensure that users provide valid data. You can use attributes like required, minlength, maxlength, and pattern to validate user inputs.</ul>
+        <ul>Form State: AngularJS tracks the state of form fields (like $valid, $invalid, $pristine, and $dirty), which you can use to manage user feedback and display error messages.</ul>
+    </li>
+    <h2>User Information Form</h2>
+    
+    <form name="userForm" novalidate ng-submit="submitForm()">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" ng-model="user.name" required>
+        <span class="error" ng-show="userForm.name.$error.required && userForm.name.$touched">Name is required.</span>
+        <br><br>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" ng-model="user.age" required min="1">
+        <span class="error" ng-show="userForm.age.$error.required && userForm.age.$touched">Age is required.</span>
+        <span class="error" ng-show="userForm.age.$error.min && userForm.age.$touched">Age must be greater than 0.</span>
+        <br><br>
+
+        <button type="submit" ng-disabled="userForm.$invalid">Submit</button>
+    </form>
+
+    <div ng-if="submitted">
+        <h3>Submitted Information:</h3>
+        <p>Name: {{ user.name }}</p>
+        <p>Age: {{ user.age }}</p>
+    </div>
+
+    <script>
+        angular.module('myApp', [])
+            .controller('myController', ['$scope', function($scope) {
+                $scope.user = {};
+                $scope.submitted = false;
+
+                $scope.submitForm = function() {
+                    if ($scope.userForm.$valid) {
+                        $scope.submitted = true;
+                    }
+                };
+            }]);
+    </script>
+
+</body>
+</html>
