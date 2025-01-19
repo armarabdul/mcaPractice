@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Functions and Arrays</title>
+</head>
+<body>
+  <h1>JavaScript Functions and Arrays</h1>
+
+  <!-- Functions Section -->
+  <h2>Functions in JavaScript</h2>
+  
+  <p>1. Named Function:</p>
+  <button onclick="greet()">Call Named Function</button>
+  <script>
+    function greet() {
+      alert("Hello! This is a named function.");
+    }
+  </script>
+
+  <p>2. Anonymous Function (Assigned to a variable):</p>
+  <button onclick="anonymousFunction()">Call Anonymous Function</button>
+  <script>
+    const anonymousFunction = function () {
+      alert("Hello! This is an anonymous function.");
+    };
+  </script>
+
+  <p>3. Arrow Function:</p>
+  <button onclick="arrowFunction()">Call Arrow Function</button>
+  <script>
+    const arrowFunction = () => {
+      alert("Hello! This is an arrow function.");
+    };
+  </script>
+
+  <p>4. Function with Parameters:</p>
+  <button onclick="showSum(5, 10)">Call Function with Parameters</button>
+  <script>
+    function showSum(a, b) {
+      alert("The sum of " + a + " and " + b + " is: " + (a + b));
+    }
+  </script>
+
+  <p>5. Function Returning a Value:</p>
+  <button onclick="showResult()">Call Function Returning a Value</button>
+  <script>
+    function multiply(x, y) {
+      return x * y;
+    }
+
+    function showResult() {
+      const result = multiply(4, 5);
+      alert("The result of multiplication is: " + result);
+    }
+  </script>
+
+  <!-- Arrays Section -->
+  <h2>Arrays in JavaScript</h2>
+
+  <p>1. Basic Array and Iteration:</p>
+  <button onclick="displayArray()">Display Array Elements</button>
+  <script>
+    function displayArray() {
+      const fruits = ["Apple", "Banana", "Mango", "Orange"];
+      let result = "Fruits: ";
+      fruits.forEach((fruit) => {
+        result += fruit + " ";
+      });
+      alert(result);
+    }
+  </script>
+
+  <p>2. Array Methods:</p>
+  <button onclick="arrayMethods()">Use Array Methods</button>
+  <script>
+    function arrayMethods() {
+      const numbers = [10, 20, 30, 40, 50];
+      let result = "Original Array: " + numbers + "\n";
+
+      // Push - Add element to the end
+      numbers.push(60);
+      result += "After Push (60): " + numbers + "\n";
+
+      // Pop - Remove last element
+      numbers.pop();
+      result += "After Pop: " + numbers + "\n";
+
+      // Shift - Remove first element
+      numbers.shift();
+      result += "After Shift: " + numbers + "\n";
+
+      // Unshift - Add element to the beginning
+      numbers.unshift(5);
+      result += "After Unshift (5): " + numbers + "\n";
+
+      // Map - Multiply all elements by 2
+      const doubled = numbers.map((num) => num * 2);
+      result += "After Map (*2): " + doubled + "\n";
+
+      // Filter - Keep numbers greater than 20
+      const filtered = numbers.filter((num) => num > 20);
+      result += "After Filter (>20): " + filtered;
+
+      alert(result);
+    }
+  </script>
+
+  <p>3. Multidimensional Array:</p>
+  <button onclick="multiArray()">Display Multidimensional Array</button>
+  <script>
+    function multiArray() {
+      const matrix = [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9],
+      ];
+      let result = "Matrix:\n";
+      for (let i = 0; i < matrix.length; i++) {
+        result += matrix[i].join(" ") + "\n";
+      }
+      alert(result);
+    }
+  </script>
+</body>
+</html>
