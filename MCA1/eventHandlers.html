@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handlers in JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        .container {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        button, input {
+            padding: 10px 15px;
+            margin: 10px 0;
+            border: 1px solid #4CAF50;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .log {
+            color: #FF5733;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript Event Handlers</h1>
+
+    <div class="container">
+        <h3>1. Click Event</h3>
+        <button id="clickBtn">Click Me</button>
+        <p id="clickLog" class="log"></p>
+    </div>
+
+    <div class="container">
+        <h3>2. Mouseover Event</h3>
+        <button id="hoverBtn">Hover Over Me</button>
+        <p id="hoverLog" class="log"></p>
+    </div>
+
+    <div class="container">
+        <h3>3. Keydown Event</h3>
+        <input id="textInput" type="text" placeholder="Type something here..." />
+        <p id="keyLog" class="log"></p>
+    </div>
+
+    <div class="container">
+        <h3>4. Focus Event</h3>
+        <input id="focusInput" type="text" placeholder="Focus on me!" />
+        <p id="focusLog" class="log"></p>
+    </div>
+
+    <div class="container">
+        <h3>5. Double Click Event</h3>
+        <button id="dblClickBtn">Double Click Me</button>
+        <p id="dblClickLog" class="log"></p>
+    </div>
+
+    <script>
+        // Click Event
+        const clickBtn = document.getElementById('clickBtn');
+        const clickLog = document.getElementById('clickLog');
+        clickBtn.addEventListener('click', () => {
+            clickLog.innerText = "Button was clicked!";
+        });
+
+        // Mouseover Event
+        const hoverBtn = document.getElementById('hoverBtn');
+        const hoverLog = document.getElementById('hoverLog');
+        hoverBtn.addEventListener('mouseover', () => {
+            hoverLog.innerText = "You hovered over the button!";
+        });
+
+        // Keydown Event
+        const textInput = document.getElementById('textInput');
+        const keyLog = document.getElementById('keyLog');
+        textInput.addEventListener('keydown', (e) => {
+            keyLog.innerText = `You pressed: ${e.key}`;
+        });
+
+        // Focus Event
+        const focusInput = document.getElementById('focusInput');
+        const focusLog = document.getElementById('focusLog');
+        focusInput.addEventListener('focus', () => {
+            focusLog.innerText = "Input is focused!";
+        });
+        focusInput.addEventListener('blur', () => {
+            focusLog.innerText = "Input lost focus!";
+        });
+
+        // Double Click Event
+        const dblClickBtn = document.getElementById('dblClickBtn');
+        const dblClickLog = document.getElementById('dblClickLog');
+        dblClickBtn.addEventListener('dblclick', () => {
+            dblClickLog.innerText = "Button was double-clicked!";
+        });
+    </script>
+</body>
+</html>

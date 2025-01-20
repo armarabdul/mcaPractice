@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Handlers in JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        .container {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .method {
+            color: #007BFF;
+        }
+        .result {
+            color: #FF5733;
+        }
+    </style>
+</head>
+<body>
+    <h1>String Handlers in JavaScript</h1>
+
+    <div class="container">
+        <h3>Original String:</h3>
+        <p id="original" class="method"></p>
+    </div>
+
+    <div class="container">
+        <h3>Uppercase Conversion:</h3>
+        <p id="uppercase" class="result"></p>
+    </div>
+
+    <div class="container">
+        <h3>Lowercase Conversion:</h3>
+        <p id="lowercase" class="result"></p>
+    </div>
+
+    <div class="container">
+        <h3>Substring:</h3>
+        <p id="substring" class="result"></p>
+    </div>
+
+    <div class="container">
+        <h3>String Split:</h3>
+        <p id="split" class="result"></p>
+    </div>
+
+    <div class="container">
+        <h3>Replaced Text:</h3>
+        <p id="replaced" class="result"></p>
+    </div>
+
+    <div class="container">
+        <h3>Check if String Includes:</h3>
+        <p id="includes" class="result"></p>
+    </div>
+
+    <div class="container">
+        <h3>Trimmed String:</h3>
+        <p id="trimmed" class="result"></p>
+    </div>
+
+    <script>
+        const text = "   JavaScript is amazing and powerful.   ";
+        
+        // Display Original String
+        document.getElementById("original").innerText = text;
+
+        // Uppercase Conversion
+        document.getElementById("uppercase").innerText = text.toUpperCase();
+
+        // Lowercase Conversion
+        document.getElementById("lowercase").innerText = text.toLowerCase();
+
+        // Extracting a Substring
+        document.getElementById("substring").innerText = text.substring(3, 13);
+
+        // Splitting String into Array
+        document.getElementById("split").innerText = text.split(" ").join(", ");
+
+        // Replacing Text
+        document.getElementById("replaced").innerText = text.replace("amazing", "wonderful");
+
+        // Checking if String Includes
+        document.getElementById("includes").innerText = text.includes("amazing");
+
+        // Trimming Whitespace
+        document.getElementById("trimmed").innerText = text.trim();
+    </script>
+</body>
+</html>
