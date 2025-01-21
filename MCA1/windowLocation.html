@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Timers</title>
+    <script>
+        function showAfterDelay() {
+            setTimeout(() => {
+                alert("This message is shown after 3 seconds!");
+            }, 3000);
+        }
+
+        let intervalId;
+        function startTimer() {
+            intervalId = setInterval(() => {
+                console.log("This message is shown every 2 seconds.");
+            }, 2000);
+        }
+
+        function stopTimer() {
+            clearInterval(intervalId);
+            alert("Timer stopped!");
+        }
+    </script>
+</head>
+<body>
+    <h1>Window Timers</h1>
+    <button onclick="showAfterDelay()">Show After Delay</button>
+    <button onclick="startTimer()">Start Interval Timer</button>
+    <button onclick="stopTimer()">Stop Interval Timer</button>
+</body>
+</html>

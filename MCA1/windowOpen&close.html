@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Window Open and Close</title>
+    <script>
+        let newWindow;
+        
+        function openWindow() {
+            newWindow = window.open("https://www.example.com", "_blank", "width=500,height=500");
+        }
+
+        function closeWindow() {
+            if (newWindow) {
+                newWindow.close();
+                alert("New window closed!");
+            } else {
+                alert("No window to close!");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Open and Close Window</h1>
+    <button onclick="openWindow()">Open New Window</button>
+    <button onclick="closeWindow()">Close New Window</button>
+</body>
+</html>

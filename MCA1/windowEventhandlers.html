@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Window Events</title>
+    <script>
+        function onResize() {
+            console.log("Window resized!");
+        }
+
+        function onLoadEvent() {
+            alert("Page is fully loaded!");
+        }
+
+        function onUnloadEvent() {
+            alert("You are leaving the page!");
+        }
+    </script>
+</head>
+<body onload="onLoadEvent()" onunload="onUnloadEvent()" onresize="onResize()">
+    <h1>Window Event Handlers</h1>
+    <p>Resize the window or reload the page to see event handlers in action.</p>
+</body>
+</html>

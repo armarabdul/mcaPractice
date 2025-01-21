@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alert, Confirm, Prompt</title>
+    <script>
+        function showAlert() {
+            alert("This is a simple alert!");
+        }
+        
+        function showConfirm() {
+            let result = confirm("Do you agree?");
+            if (result) {
+                alert("You clicked OK!");
+            } else {
+                alert("You clicked Cancel!");
+            }
+        }
+        
+        function showPrompt() {
+            let name = prompt("What is your name?", "Enter your name here");
+            if (name) {
+                alert(`Hello, ${name}!`);
+            } else {
+                alert("You did not enter your name.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Window Methods: Alert, Confirm, Prompt</h1>
+    <button onclick="showAlert()">Show Alert</button>
+    <button onclick="showConfirm()">Show Confirm</button>
+    <button onclick="showPrompt()">Show Prompt</button>
+</body>
+</html>

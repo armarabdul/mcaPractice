@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scroll Example</title>
+    <script>
+        function scrollToTop() {
+            window.scrollTo(0, 0);
+        }
+
+        function showScrollPosition() {
+            alert(`Scroll Position: X = ${window.scrollX}, Y = ${window.scrollY}`);
+        }
+    </script>
+</head>
+<body>
+    <h1>Window Scroll</h1>
+    <p style="margin-top: 2000px;">Scroll down and click the buttons.</p>
+    <button onclick="scrollToTop()">Scroll to Top</button>
+    <button onclick="showScrollPosition()">Show Scroll Position</button>
+</body>
+</html>
