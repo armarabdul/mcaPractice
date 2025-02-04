@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS Modules with Dependencies</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-app="MainApp">
+
+    <div ng-controller="MainController">
+        <h2>AngularJS with Dependent Modules</h2>
+        <p>Reversed Message: {{ reversedMessage }}</p>
+    </div>
+
+    <script>
+        // Define a utility module
+        var utilityModule = angular.module('UtilityModule', []);
+
+        // Create a service in UtilityModule
+        utilityModule.service('TextService', function() {
+            this.reverseText = function(text) {
+                return text.split('').reverse().join('');
+            };
+        });
+
+        // Define the main app module that depends on UtilityModule
+        var mainApp = angular.module('MainApp', ['UtilityModule']);
+
+        // Create a controller in MainApp
+        mainApp.controller('MainController', function($scope, TextService) {
+            $scope.message = "Hello, AngularJS!";
+            $scope.reversedMessage = TextService.reverseText($scope.message);
+        });
+    </script>
+
+</body>
+</html>
