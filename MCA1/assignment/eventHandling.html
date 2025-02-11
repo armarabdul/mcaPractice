@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Dropdown</title>
+    <style>
+        .dropdown {
+            display: none;
+            border: 1px solid #ccc;
+            position: absolute;
+            background: white;
+            width: 150px;
+        }
+        .dropdown div {
+            padding: 10px;
+            cursor: pointer;
+        }
+        .dropdown div:hover {
+            background: lightgray;
+        }
+    </style>
+</head>
+<body>
+
+<button onclick="toggleDropdown()">Select Option</button>
+<div id="dropdown" class="dropdown">
+    <div onclick="selectOption('Option 1')">Option 1</div>
+    <div onclick="selectOption('Option 2')">Option 2</div>
+    <div onclick="selectOption('Option 3')">Option 3</div>
+</div>
+<p>Selected: <span id="selected-option">None</span></p>
+
+<script>
+    function toggleDropdown() {
+        const dropdown = document.getElementById("dropdown");
+        dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    }
+
+    function selectOption(value) {
+        document.getElementById("selected-option").textContent = value;
+        document.getElementById("dropdown").style.display = "none";
+    }
+
+    // Hide dropdown when clicking outside
+    document.addEventListener("click", function(event) {
+        if (!event.target.closest("button") && !event.target.closest(".dropdown")) {
+            document.getElementById("dropdown").style.display = "none";
+        }
+    });
+</script>
+
+</body>
+</html>
